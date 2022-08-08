@@ -1,0 +1,40 @@
+<section class="calc-form">
+  <h1 class="calc-form__title">Calorie counter</h1>
+  <form class="calc-form__form" [formGroup]="calcForm">
+    <label class="calc-form__label calc-form__label_sex">Sex
+      <select class="calc-form__control calc-form__control_sex" formControlName="sex" required>
+        <option>male</option>
+        <option>female</option>
+      </select>
+    </label>
+    <div class="calc-form__row-wrap">
+      <label class="calc-form__label"> Age
+        <input class="calc-form__control calc-form__control_age" formControlName="age" required type="number" min="0">
+      </label>
+      <label class="calc-form__label">Weight
+        <input class="calc-form__control calc-form__control_weight" formControlName="weight" required type="number" min="0">
+      </label>
+      <label class="calc-form__label">Growgh
+        <input class="calc-form__control calc-form__control_grow" formControlName="growth" required type="number" min="0">
+      </label>
+    </div>
+    <label class="calc-form__label">Activity
+      <select class="calc-form__control calc-form__control_active" formControlName="activity" required> 
+        <option class="calc-form__option" value="1">minimal activity</option>
+        <option value="2">low level of activity</option>
+        <option value="3">moderate activity level</option>
+        <option value="4">heavy or labor-intensive activity</option>
+        <option value="5">extreme level</option>
+      </select>
+    </label>
+    <div class="calc-form__actions">
+      <button class="calc-form__btn" type="submit" [disabled]="calcForm.invalid" (click)="onSubmit()" [ngClass]="{'disabled' : calcForm.invalid}">Calculate</button>
+      <button class="calc-form__btn" [ngClass]="{'disabled' : calcForm.pristine}" (click)="resetForm()">Reset</button>
+    </div>
+  </form>
+  
+  <div class="calc-form__calc" *ngIf="calcNumber">
+    Your calorie intake:
+    <span class="calc-form__number">{{calcNumber}}</span>
+  </div>
+</section>

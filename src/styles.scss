@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: Montserrat sans-serif;
+  src: url(./assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: Montserrat sans-serif;
+  margin: 0;
+}

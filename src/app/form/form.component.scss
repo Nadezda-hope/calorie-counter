@@ -1,0 +1,107 @@
+.calc-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 60px;
+  background-image: url('./../../assets/imges/bg-img.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__title {
+    color: #fff;
+    margin-bottom: 60px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  &__form,
+  &__calc {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 auto 20px;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+
+    &_sex {
+      align-self: center;
+    }
+  }
+
+  &__control {
+    height: 34px;
+    width: 60px;
+    margin-top: 8px;
+    padding: 0 8px;
+    border: none;
+    box-shadow: 0 0 0 2px #cccccc;
+    border-radius: 4px;
+
+    &_sex {
+      width: 82px;
+    }
+
+    &_active {
+      width: auto;
+    }
+  }
+
+  &__row-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__btn {
+    align-self: center;
+    width: 90px;
+    height: 34px;
+    font-family: Montserrat sans-serif;
+    border: none;
+    background-color: #ed9121;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+
+    &.disabled {
+      background-color: #cccccc;
+      cursor: default;
+    }
+  }
+
+  &__option {
+    font-family: Montserrat sans-serif;
+  }
+
+  &__number {
+    margin-top: 8px;
+    font-size: 21px;
+    color: #ed9121;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .calc-form {
+    display: block;
+    padding-left: 20px;
+    padding-right: 20px;
+    &__form,
+    &__calc {
+      width: auto;
+    }
+  }
+}
