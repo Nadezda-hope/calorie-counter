@@ -38,6 +38,14 @@
   }
 
   &__control {
+    position: relative;
+
+    &_sex {
+      align-self: center;
+    }
+  }
+  
+  &__input {
     height: 34px;
     width: 60px;
     margin-top: 8px;
@@ -45,13 +53,17 @@
     border: none;
     box-shadow: 0 0 0 2px #cccccc;
     border-radius: 4px;
-
+  
     &_sex {
       width: 82px;
     }
-
+  
     &_active {
       width: auto;
+    }
+  
+    &.ng-touched.ng-invalid {
+      box-shadow: 0 0 0 2px tomato;
     }
   }
 
@@ -91,6 +103,14 @@
     margin-top: 8px;
     font-size: 21px;
     color: #ed9121;
+  }
+
+  &__valid-message {
+    position: absolute;
+    top: 64px;
+    font-size: 10px;
+    color: tomato;
+    text-align: center;
   }
 }
 

@@ -1,32 +1,53 @@
 <section class="calc-form">
   <h1 class="calc-form__title">Calorie counter</h1>
   <form class="calc-form__form" [formGroup]="calcForm">
-    <label class="calc-form__label calc-form__label_sex">Sex
-      <select class="calc-form__control calc-form__control_sex" formControlName="sex" required>
-        <option>male</option>
-        <option>female</option>
-      </select>
-    </label>
-    <div class="calc-form__row-wrap">
-      <label class="calc-form__label"> Age
-        <input class="calc-form__control calc-form__control_age" formControlName="age" required type="number" min="0">
+    <div class="calc-form__control calc-form__control_sex">
+      <label class="calc-form__label calc-form__label_sex">Sex
+        <select class="calc-form__input calc-form__input_sex" formControlName="sex" required>
+          <option>male</option>
+          <option>female</option>
+        </select>
       </label>
-      <label class="calc-form__label">Weight
-        <input class="calc-form__control calc-form__control_weight" formControlName="weight" required type="number" min="0">
-      </label>
-      <label class="calc-form__label">Growgh
-        <input class="calc-form__control calc-form__control_grow" formControlName="growth" required type="number" min="0">
-      </label>
+      <div *ngIf="calcForm.controls['sex'].invalid && calcForm.controls['sex'].touched" class="calc-form__valid-message">
+        <div>This field is required</div>
+      </div>
     </div>
-    <label class="calc-form__label">Activity
-      <select class="calc-form__control calc-form__control_active" formControlName="activity" required> 
-        <option class="calc-form__option" value="1">minimal activity</option>
-        <option value="2">low level of activity</option>
-        <option value="3">moderate activity level</option>
-        <option value="4">heavy or labor-intensive activity</option>
-        <option value="5">extreme level</option>
-      </select>
-    </label>
+    <div class="calc-form__row-wrap">
+      <div class="calc-form__control">
+        <label class="calc-form__label"> Age
+          <input class="calc-form__input" formControlName="age" required type="number" min="0">
+        </label>
+        <div *ngIf="calcForm.controls['age'].invalid && calcForm.controls['age'].touched" class="calc-form__valid-message">
+          <div>This field is required</div>
+        </div>
+      </div>
+      <div class="calc-form__control">
+        <label class="calc-form__label">Weight
+          <input class="calc-form__input" formControlName="weight" required type="number" min="0">
+        </label>
+        <div *ngIf="calcForm.controls['weight'].invalid && calcForm.controls['weight'].touched" class="calc-form__valid-message">
+          <div>This field is required</div>
+        </div>
+      </div>
+      <div class="calc-form__control">
+        <label class="calc-form__label">Growgh
+          <input class="calc-form__input" formControlName="growth" required type="number" min="0">
+        </label>
+        <div *ngIf="calcForm.controls['growth'].invalid && calcForm.controls['growth'].touched" class="calc-form__valid-message">
+          <div>This field is required</div>
+        </div>
+      </div>
+    </div>
+    <div class="calc-form__control">
+      <label class="calc-form__label">Activity
+        <select class="calc-form__input calc-form__input_active" formControlName="activity" required> 
+          <option *ngFor="let item of activityList" value="{{item.value}}">{{item.text}}</option>
+        </select>
+      </label>
+      <div *ngIf="calcForm.controls['activity'].invalid && calcForm.controls['activity'].touched" class="calc-form__valid-message">
+        <div>This field is required</div>
+      </div>
+    </div>
     <div class="calc-form__actions">
       <button class="calc-form__btn" type="submit" [disabled]="calcForm.invalid" (click)="onSubmit()" [ngClass]="{'disabled' : calcForm.invalid}">Calculate</button>
       <button class="calc-form__btn" [ngClass]="{'disabled' : calcForm.pristine}" (click)="resetForm()">Reset</button>

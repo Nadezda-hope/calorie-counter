@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { IActivity } from '../activity.interface';
 
 @Component({
   selector: 'app-form',
@@ -8,6 +9,29 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
   public calcNumber!: number;
+
+  public activityList: IActivity[] = [
+    {
+      value: '1',
+      text: 'minimal activity'
+    },
+    {
+      value: '2',
+      text: 'low level of activity'
+    },
+    {
+      value: '3',
+      text: 'moderate activity level'
+    },
+    {
+      value: '4',
+      text: 'heavy or labor-intensive activity'
+    },
+    {
+      value: '5',
+      text: 'extreme level'
+    },
+  ]
 
   public calcForm = this.formBuilder.group({
     age: new FormControl('', Validators.required),
